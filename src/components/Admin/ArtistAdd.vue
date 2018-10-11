@@ -4,7 +4,7 @@
         <div id="title">Add New Artist</div>
         <img id="photo" src="2.jpg"/>
         <button id="upload">Upload Picture</button>
-        <button id="publish">Publish</button>
+        <button id="publish" v-on:click="upload">Publish</button>
         <div id="basic">
             <p>Basic Information</p>
             <label for="name">Name</label>
@@ -28,8 +28,18 @@
 </template>
 
 <script>
+    import Vue from 'vue'
+    import axios from 'axios'
+    import VueAxios from 'vue-axios'
+    Vue.use(VueAxios, axios)
     export default {
-        name: "ArtistAdd"
+        name: "ArtistAdd",
+        methods: {
+            upload: function () {
+                Vue.axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+                    .then(function(response){window.console.log(response)})
+            }
+        }
     }
 </script>
 
