@@ -28,15 +28,11 @@
 </template>
 
 <script>
-    import Vue from 'vue'
-    import axios from 'axios'
-    import VueAxios from 'vue-axios'
-    Vue.use(VueAxios, axios)
     export default {
         name: "ArtistAdd",
         methods: {
             upload: function () {
-                Vue.axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+                this.axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
                     .then(function(response){window.console.log(response)})
             }
         }
